@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="h-screen bg-zinc-950 bg-site-bg bg-cover bg-fixed bg-center bg-no-repeat text-sm text-zinc-200 md:text-base">
-        <nav className="bg-red flex items-center justify-center py-4">
+        <nav className="flex items-center justify-center py-4">
           <Link href="/">
             <Image
               src="/logo.png"
