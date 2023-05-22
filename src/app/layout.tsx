@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="h-screen bg-zinc-950 bg-site-bg bg-cover bg-fixed bg-center bg-no-repeat text-sm text-zinc-200 md:text-base">
         <nav className="flex items-center justify-center py-4">
-          <Link href="/">
+          <Link href="/" className="inline-flex flex-col items-center">
             <Image
               src="/logo.png"
               alt="TierZero"
@@ -24,6 +24,7 @@ export default function RootLayout({
               height={200}
               className="rounded-full"
             />
+            <span className="text-xs font-bold">Beta 1.3.0</span>
           </Link>
         </nav>
         {children}
