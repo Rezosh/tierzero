@@ -8,10 +8,10 @@ export default function Home() {
     <main className="mb-20">
       <div className="h-[563px] w-full bg-hero-bg bg-cover bg-center">
         <div className="flex h-full flex-col items-center justify-center bg-black/60">
-          <h3 className="text-lg uppercase tracking-wider text-primary">
+          <h3 className="text-xs uppercase tracking-wider text-primary md:text-base">
             Welcome To Tier-Zero
           </h3>
-          <h1 className="mt-2 max-w-lg text-center text-6xl font-bold uppercase tracking-wide">
+          <h1 className="mt-2 max-w-lg text-center text-2xl font-bold uppercase tracking-wide md:text-6xl">
             Your One-Stop Destination
           </h1>
 
