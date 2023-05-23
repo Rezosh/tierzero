@@ -74,7 +74,7 @@ export default function Home() {
               Our intuitive user interface provides a seamless experience,
               offering all your data in one convenient location. Explore your
               win/loss ratio, K/D ratio, and more, and easily compare your stats
-              with fellow players on the global leader boards.
+              with fellow players on the global leaderboards.
             </p>
             <p>
               Uncover your strengths, address your weaknesses, and level up your
