@@ -1,4 +1,4 @@
-import Chart from "@/components/Chart/Chart";
+import ApexChart from "@/components/ApexChart/ApexChart";
 
 const mockData = [
   { date: "2023-04-30T12:25:00.000Z", value: 2049 },
@@ -285,12 +285,23 @@ const mockData = [
   { date: "2024-02-06T00:11:00.000Z", value: 2040 },
 ];
 
-let data = mockData.map((d) => ({ ...d, date: new Date(d.date) }));
+// let data = mockData.map((d) => ({ ...d, date: new Date(d.date) }));
+// map date to x property and value to y property
+let data = mockData.map((d) => ({ x: d.date, y: d.value }));
+
+const series = [
+  {
+    name: "MMR",
+    data: data,
+  },
+];
 
 export default function Stats() {
   return (
     <div className="mt-4 rounded-md bg-zinc-900/60 px-8 py-6 backdrop-blur">
-      <Chart data={data} />
+      <h2 className="text-2xl font-semibold">MMR History</h2>
+      <ApexChart series={series} />
+      
     </div>
   );
 }
