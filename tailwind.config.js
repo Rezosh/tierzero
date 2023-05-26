@@ -14,6 +14,9 @@ module.exports = {
       colors: {
         "primary": "#EA5B14",
       },
+      gridTemplateColumns: {
+        'stats-page': '1fr 250px',
+      }
     },
   },
   plugins: [],

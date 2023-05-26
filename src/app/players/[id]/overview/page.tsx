@@ -37,31 +37,21 @@ export default function Overview() {
   const mmrStars = calculateMMRStars(mockData.totalStats.mmr);
 
   return (
-    <div className="mt-4 grid grid-cols-1 grid-rows-1 gap-4 md:grid-cols-3">
-      <div className="rounded-md bg-zinc-900/60 px-8 py-3 backdrop-blur md:col-span-2">
+    <div className="mt-4 grid grid-cols-1 grid-rows-1 gap-4 md:grid-cols-stats-page ">
+      <div className="rounded-md bg-zinc-900/60 px-8 py-4 backdrop-blur ">
         <div>
           <h1 className="text-xl">Overview</h1>
           <div className="mt-4 grid w-full grid-cols-2 place-items-start gap-x-12 gap-y-6 pb-4 md:grid-cols-4">
             <ProfileStat
               label="Bounty Hunt"
               value={formatNumber(mockData.globalStats.bountyHunt)}
-              primary
             />
             <ProfileStat
               label="Quick Play"
               value={formatNumber(mockData.globalStats.quickPlay)}
-              primary
             />
-            <ProfileStat
-              label="Kills"
-              value={mockData.totalStats.kills}
-              primary
-            />
-            <ProfileStat
-              label="Deaths"
-              value={mockData.totalStats.deaths}
-              primary
-            />
+            <ProfileStat label="Kills" value={mockData.totalStats.kills} />
+            <ProfileStat label="Deaths" value={mockData.totalStats.deaths} />
             <ProfileStat label="Kills/match" value={"4.67"} />
             <ProfileStat label="Avg Match Length" value={"14m 57s"} />
             <ProfileStat label="Extractions" value={"807"} />
@@ -69,10 +59,9 @@ export default function Overview() {
           </div>
         </div>
       </div>
-      <div className="h-min rounded-md bg-zinc-900/60 px-8 py-3 backdrop-blur">
+      <div className="order-first h-min w-full rounded-md bg-zinc-900/60 px-8 py-4 backdrop-blur md:order-last md:w-fit">
         <div className="flex flex-col gap-2">
           <div className="flex gap-2">
-            {/* Make a array of 6, return the mmr star image at full opacity and the rest make opacity 20% */}
             {Array.from({ length: 6 }, (_, i) => (
               <Image
                 key={i}
