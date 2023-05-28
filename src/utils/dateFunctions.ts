@@ -11,3 +11,8 @@ export function formatDate(date: string): string {
 export function formatNumber(num: number): string {
   return num.toLocaleString("en-US");
 }
+
+// Tailwind conditional classes
+export function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+}
