@@ -13,13 +13,15 @@ export default function AnimatedTabs({ tabs }: AnimatedTabsProps) {
   const pathname = usePathname();
   const params = useParams();
 
+  const  actualTabsHref = useMemo(() => {
+    return tabs.map((tab) => tab.href.replace("[id]", params.id));
+  }, [tabs, params.id]);
+
   const activeTab = useMemo(() => {
-    const actualTabsHref = tabs.map((tab) =>
-      tab.href.replace("[id]", params.id)
-    );
     const tab = actualTabsHref.find((tab) => pathname.startsWith(tab));
     return tab;
-  }, [pathname]);
+  }, [actualTabsHref, pathname]);
+
 
   return (
     <div className="flex items-center justify-between">
