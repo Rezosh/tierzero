@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useMemo, useState } from "react";
 import { useParams, usePathname } from "next/navigation";
-import { ta } from "date-fns/locale";
+import { useMemo } from "react";
+
 interface AnimatedTabsProps {
   tabs: { href: string; label: string }[];
 }
