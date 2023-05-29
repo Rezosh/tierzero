@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useParams, usePathname } from "next/navigation";
-import { useMemo } from "react";
+import { usePathname } from "next/navigation";
 
 interface AnimatedTabsProps {
   tabs: { href: string; label: string }[];
@@ -11,26 +10,15 @@ interface AnimatedTabsProps {
 
 export default function AnimatedTabs({ tabs }: AnimatedTabsProps) {
   const pathname = usePathname();
-  const params = useParams();
-
-  const  actualTabsHref = useMemo(() => {
-    return tabs.map((tab) => tab.href.replace("[id]", params.id));
-  }, [tabs, params.id]);
-
-  const activeTab = useMemo(() => {
-    const tab = actualTabsHref.find((tab) => pathname.startsWith(tab));
-    return tab;
-  }, [actualTabsHref, pathname]);
-
 
   return (
     <div className="flex items-center justify-between">
       {tabs.map((tab, index) => (
         <Link
-          href={tab.href.replace("[id]", params.id)}
+          href={tab.href}
           key={index}
           className={`${
-            activeTab === tab.href.replace("[id]", params.id)
+            pathname === tab.href
               ? ""
               : "hover:text-zinc-200/60"
           } relative rounded-md px-3 py-1.5 text-sm font-medium uppercase text-zinc-200 outline-primary transition focus-visible:outline-2`}
@@ -38,7 +26,7 @@ export default function AnimatedTabs({ tabs }: AnimatedTabsProps) {
             WebkitTapHighlightColor: "transparent",
           }}
         >
-          {activeTab === tab.href.replace("[id]", params.id) && (
+          {pathname === tab.href && (
             <motion.span
               layoutId="bubble"
               className="absolute inset-0 z-10 bg-zinc-50 mix-blend-difference"

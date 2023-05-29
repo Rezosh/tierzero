@@ -27,15 +27,16 @@ const mockData = {
 
 export default function Layout(props: {
   children: React.ReactNode;
-  overview: React.ReactNode;
+  params: { id: string };
 }) {
   const tabs = [
-    { href: "/players/[id]/overview", label: "Overview" },
-    { href: "/players/[id]/stats", label: "Stats" },
-    { href: "/players/[id]/modes", label: "Modes" },
-    { href: "/players/[id]/matches", label: "Matches" },
-    { href: "/players/[id]/mmr-history", label: "MMR History" },
+    { href: `/players/${props.params.id}/overview`, label: "Overview" },
+    { href: `/players/${props.params.id}/stats`, label: "Stats" },
+    { href: `/players/${props.params.id}/modes`, label: "Modes" },
+    { href: `/players/${props.params.id}/matches`, label: "Matches" },
+    { href: `/players/${props.params.id}/mmr-history`, label: "MMR History" },
   ];
+  
   return (
     <div className="mx-auto h-full max-w-5xl px-6 lg:px-8">
       <div className="rounded-md bg-zinc-900/60 px-4 pb-2 pt-6 backdrop-blur">
