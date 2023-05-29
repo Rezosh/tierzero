@@ -2,15 +2,24 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
-import { useParams } from "next/navigation";
+import { useMemo, useState } from "react";
+import { useParams, usePathname } from "next/navigation";
+import { ta } from "date-fns/locale";
 interface AnimatedTabsProps {
   tabs: { href: string; label: string }[];
 }
 
 export default function AnimatedTabs({ tabs }: AnimatedTabsProps) {
-  let [activeTab, setActiveTab] = useState(0);
+  const pathname = usePathname();
   const params = useParams();
+
+  const activeTab = useMemo(() => {
+    const actualTabsHref = tabs.map((tab) =>
+      tab.href.replace("[id]", params.id)
+    );
+    const tab = actualTabsHref.find((tab) => pathname.startsWith(tab));
+    return tab;
+  }, [pathname]);
 
   return (
     <div className="flex items-center justify-between">
@@ -18,15 +27,16 @@ export default function AnimatedTabs({ tabs }: AnimatedTabsProps) {
         <Link
           href={tab.href.replace("[id]", params.id)}
           key={index}
-          onClick={() => setActiveTab(index)}
           className={`${
-            activeTab === index ? "" : "hover:text-zinc-200/60"
+            activeTab === tab.href.replace("[id]", params.id)
+              ? ""
+              : "hover:text-zinc-200/60"
           } relative rounded-md px-3 py-1.5 text-sm font-medium uppercase text-zinc-200 outline-primary transition focus-visible:outline-2`}
           style={{
             WebkitTapHighlightColor: "transparent",
           }}
         >
-          {activeTab === index && (
+          {activeTab === tab.href.replace("[id]", params.id) && (
             <motion.span
               layoutId="bubble"
               className="absolute inset-0 z-10 bg-zinc-50 mix-blend-difference"
