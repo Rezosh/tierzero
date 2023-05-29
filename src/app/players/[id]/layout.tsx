@@ -30,15 +30,15 @@ export default function Layout(props: {
   params: { id: string };
 }) {
   const tabs = [
-    { href: `/players/${props.params.id}/overview`, label: "Overview" },
-    { href: `/players/${props.params.id}/stats`, label: "Stats" },
-    { href: `/players/${props.params.id}/modes`, label: "Modes" },
-    { href: `/players/${props.params.id}/matches`, label: "Matches" },
-    { href: `/players/${props.params.id}/mmr-history`, label: "MMR History" },
+    { href: `/players/1/overview`, label: "Overview" },
+    { href: `/players/1/stats`, label: "Stats" },
+    { href: `/players/1/modes`, label: "Modes" },
+    { href: `/players/1/matches`, label: "Matches" },
+    { href: `/players/1/mmr-history`, label: "MMR History" },
   ];
-  
+
   return (
-    <div className="mx-auto h-full max-w-5xl px-6 lg:px-8">
+    <div className="container mx-auto h-full px-6 lg:px-8">
       <div className="rounded-md bg-zinc-900/60 px-4 pb-2 pt-6 backdrop-blur">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4 pl-4">

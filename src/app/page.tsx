@@ -30,7 +30,7 @@ export default function Home() {
           </a>
         </div>
       </div>
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
+      <div className="container mx-auto px-6 lg:px-8">
         <dl className="-mt-12 grid grid-cols-1 gap-0.5 overflow-hidden rounded-md  text-center md:grid-cols-3">
           <div className="flex flex-col bg-zinc-900/60 p-8 backdrop-blur">
             <dt className="text-sm font-semibold leading-6 text-primary">
@@ -59,7 +59,7 @@ export default function Home() {
         </dl>
       </div>
 
-      <div className="mx-auto mt-16 max-w-5xl px-6  lg:px-8">
+      <div className="container mx-auto mt-16  px-6  lg:px-8">
         <div className="flex justify-center rounded-md bg-zinc-900/60 px-8 py-14 backdrop-blur">
           <div className="flex max-w-3xl flex-col gap-4">
             <h2 className="mb-2 text-xl font-bold">

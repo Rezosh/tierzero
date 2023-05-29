@@ -50,7 +50,7 @@ export default function Example() {
   return (
     <header className="bg-transparent">
       <nav
-        className="mx-auto flex max-w-5xl items-center justify-between p-6 lg:px-8"
+        className="container mx-auto flex items-center justify-between p-6 lg:px-8"
         aria-label="Global"
       >
         <Link href="/" className="-m-1.5 flex flex-col items-center p-1.5">
