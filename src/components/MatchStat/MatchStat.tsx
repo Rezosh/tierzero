@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import { classNames } from "@/utils/dateFunctions";
+import { useParams } from "next/navigation";
 
 interface Match {
   id: number;
@@ -23,10 +25,14 @@ function calculateKD(kills: number, deaths: number) {
 }
 
 export default function MatchStat({ match }: { match: Match }) {
+  const params = useParams();
+
   return (
     <div
       className={classNames(
-        match.outcome === "loss" ? "border-l-red-600" : "border-l-green-500",
+        match.outcome === "loss"
+          ? "border-l-red-600"
+          : "border-l-green-500 bg-gradient-to-r from-green-700/5 from-10%  ",
         " border-l-4 border-b-zinc-50/5 px-9 py-3 lg:border-b"
       )}
     >
@@ -38,7 +44,7 @@ export default function MatchStat({ match }: { match: Match }) {
               {match.outcome === "loss" ? "Defeat" : "Extracted"}
             </h1>
             <Link
-              href={`/players/1/matches#`}
+              href={`/players/${params.id}/matches/${match.id}`}
               className="text-sm font-bold text-primary"
             >
               View Match
