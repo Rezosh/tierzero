@@ -52,7 +52,7 @@ export default function Matches() {
       <div className="mt-4 rounded-md bg-zinc-900/60 px-8 py-6 backdrop-blur">
         <h1 className="text-xl">Matches</h1>
 
-        <div className="mt-6 space-y-2 lg:space-y-1">
+        <div className="mt-6">
           {mockData.matches.map((match) => (
             <MatchStat key={match.id} match={match} />
           ))}
