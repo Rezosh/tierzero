@@ -3,17 +3,6 @@ import Link from "next/link";
 import { classNames } from "@/utils/dateFunctions";
 import { useParams } from "next/navigation";
 
-interface Match {
-  id: number;
-  date: string;
-  mode: string;
-  mmrDiff: number;
-  kills: number;
-  deaths: number;
-  kd: number;
-  outcome: string;
-}
-
 // If number is positive, add a plus sign
 function formatMMR(mmr: number) {
   return mmr > 0 ? `+${mmr}` : mmr;
