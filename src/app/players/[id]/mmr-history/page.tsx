@@ -301,7 +301,6 @@ export default function Stats() {
     <div className="mt-4 rounded-md bg-zinc-900/60 px-8 py-6 backdrop-blur">
       <h2 className="text-2xl font-semibold">MMR History</h2>
       <ApexChart series={series} />
-      
     </div>
   );
 }
